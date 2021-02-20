@@ -1,0 +1,58 @@
+@import "base/variables";
+@import "libs/reset";
+
+/* @import url("https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/12.0.1/sanitize.min.css"); */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
+
+/* @import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"); */
+.border-animation {
+    position: relative;
+    z-index: -2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: rgb(0, 0, 0);
+}
+
+.block {
+    position: relative;
+    width: 800px;
+    height: 400px;
+    background: linear-gradient(0deg, #000, rgb(43, 43, 43));
+}
+
+.glow {
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        left: -2px;
+        top: -2px;
+        z-index: -1;
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        background: linear-gradient(45deg, #e6fb04, #f60, #0f6, #0ff, #f0f, #f09, #6e0dd0, #f30, #099fff);
+        background-size: 400%;
+        animation: animate 20s linear infinite;
+    }
+
+    &::after {
+        /* opacity: 0.99; */
+        filter: blur(40px);
+    }
+}
+
+@keyframes animate {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
